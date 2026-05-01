@@ -1,27 +1,51 @@
 "use client";
 import { motion } from "framer-motion";
-import { Code2, MonitorSmartphone, PenTool, Wrench } from "lucide-react";
+import { Code2, MonitorSmartphone, PenTool, Wrench, Layers, Zap, Palette, GitBranch, Lightbulb, Settings, Box, Eye } from "lucide-react";
 
 const skills = [
   {
     category: "Frontend",
     icon: Code2,
-    items: ["HTML5", "CSS3", "SCSS", "JavaScript", "jQuery", "Bootstrap", "Tailwind"]
+    items: [
+      { name: "HTML5", icon: Code2 },
+      { name: "CSS3", icon: Palette },
+      { name: "SCSS", icon: Palette },
+      { name: "JavaScript", icon: Zap },
+      { name: "jQuery", icon: Layers },
+      { name: "Bootstrap", icon: Layers },
+      { name: "Tailwind", icon: Layers }
+    ]
   },
   {
     category: "Platforms",
     icon: MonitorSmartphone,
-    items: ["WordPress", "Shopify", "Salesforce LWC", "SLDS"]
+    items: [
+      { name: "WordPress", icon: MonitorSmartphone },
+      { name: "Shopify", icon: Box },
+      { name: "Salesforce LWC", icon: Zap },
+      { name: "SLDS", icon: Settings }
+    ]
   },
   {
     category: "Design",
     icon: PenTool,
-    items: ["Wireframing", "Prototyping", "Interaction Design", "Responsive Design"]
+    items: [
+      { name: "Wireframing", icon: Box },
+      { name: "Prototyping", icon: Lightbulb },
+      { name: "Interaction Design", icon: PenTool },
+      { name: "Responsive Design", icon: Eye }
+    ]
   },
   {
     category: "Tools",
     icon: Wrench,
-    items: ["Figma", "Adobe XD", "Photoshop", "InVision", "Git"]
+    items: [
+      { name: "Figma", icon: PenTool },
+      { name: "Adobe XD", icon: Palette },
+      { name: "Photoshop", icon: Palette },
+      { name: "InVision", icon: Eye },
+      { name: "Git", icon: GitBranch }
+    ]
   }
 ];
 
@@ -60,9 +84,10 @@ export default function SkillsSection() {
                 {skillGroup.items.map((skill, i) => (
                   <span 
                     key={i} 
-                    className="px-4 py-2 bg-white/5 hover:bg-primary/20 hover:text-primary hover:border-primary/50 transition-all border border-white/10 rounded-full text-sm text-zinc-300 cursor-default"
+                    className="px-4 py-2 bg-white/5 hover:bg-primary/20 hover:text-primary hover:border-primary/50 transition-all border border-white/10 rounded-full text-sm text-zinc-300 cursor-default flex items-center gap-2"
                   >
-                    {skill}
+                    <skill.icon className="w-4 h-4" />
+                    {skill.name}
                   </span>
                 ))}
               </div>
