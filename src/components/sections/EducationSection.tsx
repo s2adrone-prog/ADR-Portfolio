@@ -1,17 +1,44 @@
 "use client";
 import { motion } from "framer-motion";
 import { GlassCard } from "../ui/GlassCard";
-import { Award, GraduationCap } from "lucide-react";
+import { Award, GraduationCap, Cpu, ShoppingBag, BookOpen, Globe2 } from "lucide-react";
 
 const certifications = [
-  "Salesforce Certified AI Associate",
-  "Shopify Development Course"
+  {
+    title: "Salesforce Certified AI Associate",
+    icon: Cpu,
+  },
+  {
+    title: "Shopify Development Course – Udemy",
+    icon: ShoppingBag,
+  },
+  {
+    title: "Diploma in Desktop Publishing – Youth Computer Training Centre",
+    icon: BookOpen,
+    iconClass: "w-6 h-6 scale-110",
+  },
+  {
+    title: "Internet Technology Certification – CMC",
+    icon: Globe2,
+  },
 ];
 
 const education = [
-  { degree: "B.A.", institution: "Calcutta University" },
-  { degree: "Higher Secondary", institution: "" },
-  { degree: "Secondary", institution: "" }
+  {
+    degree: "B.A. in Arts",
+    institution: "Barasat College, Calcutta University",
+    year: "2007 – 2010",
+  },
+  {
+    degree: "Higher Secondary",
+    institution: "New Barrackpur Colony Boys High School",
+    year: "2002",
+  },
+  {
+    degree: "Secondary",
+    institution: "New Barrackpur Colony Boys High School",
+    year: "2000",
+  },
 ];
 
 export default function EducationSection() {
@@ -47,6 +74,7 @@ export default function EducationSection() {
                   <GlassCard className="p-5 flex flex-col justify-center">
                     <h3 className="text-lg font-bold text-white">{edu.degree}</h3>
                     {edu.institution && <p className="text-primary text-sm mt-1">{edu.institution}</p>}
+                    {edu.year && <p className="text-zinc-400 text-sm mt-2">{edu.year}</p>}
                   </GlassCard>
                 </motion.div>
               ))}
@@ -69,21 +97,26 @@ export default function EducationSection() {
               <div className="w-12 h-1 bg-gradient-to-r from-primary to-accent rounded-full"></div>
             </motion.div>
 
-            <div className="space-y-4">
-              {certifications.map((cert, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                >
-                  <GlassCard className="p-5 flex items-center gap-4">
-                    <div className="w-2 h-2 rounded-full bg-accent neon-glow"></div>
-                    <h3 className="text-lg font-medium text-zinc-200">{cert}</h3>
-                  </GlassCard>
-                </motion.div>
-              ))}
+            <div className="space-y-[24px]">
+              {certifications.map((cert, index) => {
+                const Icon = cert.icon;
+                return (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                  >
+                    <GlassCard className="p-5 flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center text-accent border border-accent/20 px-[11px]">
+                        <Icon className={cert.iconClass ?? "w-6 h-6"} />
+                      </div>
+                      <h3 className="text-lg font-medium text-zinc-200">{cert.title}</h3>
+                    </GlassCard>
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </div>
