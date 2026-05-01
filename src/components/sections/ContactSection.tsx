@@ -29,11 +29,11 @@ export default function ContactSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <GlassCard className="flex items-center gap-4 p-6">
+            <GlassCard className="flex items-center gap-4 p-6 h-full">
               <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary border border-primary/20 flex-shrink-0">
                 <Mail className="w-5 h-5" />
               </div>
-              <div>
+              <div className="flex-1">
                 <h4 className="text-sm text-zinc-400 mb-1">Email</h4>
                 <a href="mailto:debroyani@gmail.com" className="text-lg text-white font-medium hover:text-primary transition-colors">
                   debroyani@gmail.com
@@ -49,11 +49,11 @@ export default function ContactSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <GlassCard className="flex items-center gap-4 p-6">
+            <GlassCard className="flex items-center gap-4 p-6 h-full">
               <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center text-accent border border-accent/20 flex-shrink-0">
                 <MapPin className="w-5 h-5" />
               </div>
-              <div>
+              <div className="flex-1">
                 <h4 className="text-sm text-zinc-400 mb-1">Location</h4>
                 <p className="text-lg text-white font-medium">
                   Kolkata, India
@@ -69,11 +69,11 @@ export default function ContactSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <GlassCard className="flex items-center gap-4 p-6">
+            <GlassCard className="flex items-center gap-4 p-6 h-full">
               <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 border border-blue-500/20 flex-shrink-0">
                 <Phone className="w-5 h-5" />
               </div>
-              <div>
+              <div className="flex-1">
                 <h4 className="text-sm text-zinc-400 mb-1">Phone</h4>
                 <p className="text-lg text-white font-medium">
                   9836705953
